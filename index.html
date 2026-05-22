@@ -1481,14 +1481,14 @@ h4{font-size:clamp(20px,1.8vw,26px);font-weight:700;letter-spacing:-.025em}
 .show-card .price{font-size:17px;font-weight:700;margin-top:8px}
 
 /* =====================================================
-   PRODUCT CARDS in shop — taller stage, full product visible
+   PRODUCT CARDS in shop — crop from TOP, show lower portion
    ===================================================== */
 .product{border-radius:16px;border:1px solid var(--line);overflow:hidden}
-.product .stage{height:400px;background:var(--bone);padding:16px;display:grid;place-items:center;overflow:hidden}
-.product .stage .real-prod{width:100%;height:100%;object-fit:contain;object-position:center;border-radius:6px;display:block}
+.product .stage{height:380px;background:var(--bone);padding:0;display:grid;place-items:center;overflow:hidden}
+.product .stage .real-prod{width:100%;height:100%;object-fit:cover;object-position:center 88%;border-radius:0;display:block}
 .product:hover .stage .real-prod{transform:scale(1.04)}
-/* sauce-card dual-bottle crops: keep cover + inline horizontal crop */
-.product .stage .real-prod[style*="object-position"]{object-fit:cover;border-radius:6px}
+/* sauce-card dual-bottle cards keep their inline horizontal crop */
+.product .stage .real-prod[style*="object-position"]{object-fit:cover}
 .product .info{padding:22px 22px 20px}
 .product .name{font-size:24px;font-weight:700}
 .product .desc{font-size:14px}
