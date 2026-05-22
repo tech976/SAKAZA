@@ -1469,7 +1469,7 @@ h4{font-size:clamp(20px,1.8vw,26px);font-weight:700;letter-spacing:-.025em}
 .show-card .stand .glow,.show-card .stand .shadow{display:none}
 .show-card .stand .real-prod-wrap{width:100%;height:100%;display:grid;place-items:end center}
 .show-card .stand .real-prod-wrap img{
-  width:100%;height:100%;max-height:100%;max-width:100%;object-fit:cover;object-position:center;
+  width:100%;height:100%;max-height:100%;max-width:100%;object-fit:cover;object-position:center 70%;
   border-radius:8px;
   filter:drop-shadow(0 18px 28px rgba(0,0,0,.18));transition:transform .6s var(--ease)
 }
@@ -1481,14 +1481,14 @@ h4{font-size:clamp(20px,1.8vw,26px);font-weight:700;letter-spacing:-.025em}
 .show-card .price{font-size:17px;font-weight:700;margin-top:8px}
 
 /* =====================================================
-   PRODUCT CARDS in shop — show full product, image shifted up
+   PRODUCT CARDS in shop — taller stage, full product visible
    ===================================================== */
 .product{border-radius:16px;border:1px solid var(--line);overflow:hidden}
-.product .stage{height:340px;background:var(--bone);padding:0;display:grid;place-items:center;overflow:hidden}
-.product .stage .real-prod{width:100%;height:100%;object-fit:cover;object-position:center 28%;border-radius:0;display:block}
+.product .stage{height:400px;background:var(--bone);padding:16px;display:grid;place-items:center;overflow:hidden}
+.product .stage .real-prod{width:100%;height:100%;object-fit:contain;object-position:center;border-radius:6px;display:block}
 .product:hover .stage .real-prod{transform:scale(1.04)}
-/* sauce-card dual-bottle crops keep their custom object-position (set inline) */
-.product .stage .real-prod[style*="object-position"]{object-position:inherit}
+/* sauce-card dual-bottle crops: keep cover + inline horizontal crop */
+.product .stage .real-prod[style*="object-position"]{object-fit:cover;border-radius:6px}
 .product .info{padding:22px 22px 20px}
 .product .name{font-size:24px;font-weight:700}
 .product .desc{font-size:14px}
@@ -1671,11 +1671,16 @@ section,.intro,.shop,.recipes-wrap,.pillars-wrap,.stockists-wrap,.bundle-wrap,
 .intro p{margin-bottom:12px}
 .intro .footer{margin-top:20px}
 
-/* manifesto */
-.manifesto-head{margin-bottom:24px}
-.manifesto-cols{margin-top:24px;gap:30px}
+/* manifesto — pulled tighter */
+.manifesto-wrap{padding-top:20px;padding-bottom:30px}
+.banner-feature + .manifesto-wrap,
+.diag-band + .manifesto-wrap{padding-top:18px}
+.manifesto-head{margin-bottom:14px}
+.manifesto-head .lede{margin-top:14px}
+.manifesto-cols{margin-top:0;gap:28px}
+.manifesto-col{padding-top:14px}
 .manifesto-col p{margin-bottom:8px}
-.manifesto-quote{margin-top:24px;padding:34px 40px}
+.manifesto-quote{margin-top:22px;padding:30px 36px}
 
 /* showcase */
 .showcase-grid{gap:10px}
@@ -1712,6 +1717,38 @@ section,.intro,.shop,.recipes-wrap,.pillars-wrap,.stockists-wrap,.bundle-wrap,
 .stockists-grid{gap:40px}
 .stockists-grid p{margin:10px 0 16px}
 .stockist{min-height:84px;padding:14px}
+
+/* ====== STOCKISTS v2 — compact tile rail ====== */
+.stockists-v2{padding-top:24px;padding-bottom:24px}
+.stockists-v2 + .bundle-wrap{padding-top:14px}
+.stockists-v2 .stockists-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid var(--line)}
+.stockists-v2 .sh-l .kicker{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--red);font-weight:500;display:block;margin-bottom:8px}
+.stockists-v2 .sh-l h2{font-size:clamp(30px,3.8vw,52px);font-weight:700;letter-spacing:-.04em;line-height:1;margin:0}
+.stockists-v2 .sh-l h2 .it{font-style:italic;color:var(--red);font-weight:500}
+.stockists-v2 .sh-p{font-family:'Geist',sans-serif;font-size:14px;color:var(--ink-soft);margin:0;max-width:380px;line-height:1.5}
+.stockists-v2 .sh-p .link-line{margin-left:6px;white-space:nowrap}
+
+.stockists-rail{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.st-tile{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:16px;display:flex;align-items:center;gap:14px;transition:.3s var(--ease);text-decoration:none;color:inherit}
+.st-tile:hover{background:var(--ink);color:var(--white);border-color:var(--ink);transform:translateY(-2px)}
+.st-tile:hover .st-mark{background:#fff;border-color:#fff}
+.st-tile:hover .st-ct{color:rgba(255,255,255,.7)}
+.st-mark{width:44px;height:44px;border-radius:10px;background:#fff;display:grid;place-items:center;border:1px solid var(--line);flex-shrink:0;overflow:hidden;transition:.3s var(--ease);padding:6px}
+.st-mark img{width:100%;height:100%;object-fit:contain;display:block}
+.st-tile.hot{border-color:var(--red)}
+.st-tile.hot .st-mark{box-shadow:0 0 0 2px var(--red),0 0 12px rgba(192,0,26,.25);border-color:#fff}
+.st-nm{font-family:'Geist',sans-serif;font-weight:600;font-size:14.5px;letter-spacing:-.02em;color:var(--ink);line-height:1.1;display:block}
+.st-ct{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--grey-darker);font-weight:500;margin-top:3px;display:block}
+.st-tile:hover .st-nm{color:#fff}
+.st-tile > div:not(.st-mark){flex:1;min-width:0}
+
+@media (max-width:1080px){
+  .stockists-rail{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:640px){
+  .stockists-rail{grid-template-columns:1fr}
+  .stockists-v2 .stockists-head{flex-direction:column;align-items:flex-start;gap:10px}
+}
 
 /* bundle */
 .bundle-card{padding:42px;gap:36px}
@@ -1785,6 +1822,56 @@ footer{padding-top:50px;padding-bottom:24px}
 .chapter{padding:14px}
 .video-frame{max-height:520px}
 
+/* ====== KITCHEN SECTION — side-by-side video + chapters ====== */
+.kitchen-split{display:grid;grid-template-columns:1fr 1.1fr;gap:40px;align-items:stretch}
+
+.kitchen-text{display:flex;flex-direction:column;gap:18px;color:var(--white);align-self:center}
+.kitchen-text .kicker{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--yellow);font-weight:600;display:inline-flex;align-items:center;gap:12px}
+.kitchen-text .kicker::before{content:"";width:24px;height:1px;background:var(--yellow)}
+.kitchen-text h2{font-size:clamp(38px,4.6vw,68px);color:var(--white);font-weight:700;letter-spacing:-.045em;line-height:.96;margin:0}
+.kitchen-text h2 .it{color:var(--yellow);font-style:italic;font-weight:500}
+.kitchen-text .lede{font-family:'Geist',sans-serif;font-size:15.5px;color:rgba(255,255,255,.82);line-height:1.6;margin:0;max-width:480px}
+
+.kitchen-stats{list-style:none;padding:14px 0;margin:0;display:flex;gap:32px;border-top:1px solid rgba(255,255,255,.14);border-bottom:1px solid rgba(255,255,255,.14)}
+.kitchen-stats li{display:flex;flex-direction:column;gap:2px}
+.kitchen-stats li b{font-family:'Geist',sans-serif;font-size:24px;font-weight:700;color:var(--yellow);letter-spacing:-.03em;line-height:1}
+.kitchen-stats li span{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.65);font-weight:500;margin-top:4px}
+
+.kitchen-ch{list-style:none;padding:0;margin:6px 0 0;display:flex;flex-direction:column}
+.kitchen-ch li{display:flex;gap:18px;padding:14px 0;border-top:1px solid rgba(255,255,255,.10);align-items:flex-start;transition:padding-left .25s var(--ease)}
+.kitchen-ch li:hover{padding-left:6px}
+.kitchen-ch li .t{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.18em;color:var(--yellow);font-weight:600;flex-shrink:0;min-width:42px;padding-top:2px}
+.kitchen-ch li > div{flex:1}
+.kitchen-ch li b{font-family:'Geist',sans-serif;font-size:16px;font-weight:600;color:#fff;letter-spacing:-.02em;display:block;line-height:1.2}
+.kitchen-ch li p{font-family:'Geist',sans-serif;font-size:13px;line-height:1.5;color:rgba(255,255,255,.66);margin:4px 0 0}
+
+.kitchen-cta{display:inline-flex;align-items:center;gap:10px;align-self:flex-start;font-family:'Geist',sans-serif;font-weight:600;font-size:13px;color:var(--yellow);border-bottom:1px solid var(--yellow);padding-bottom:3px;margin-top:8px;transition:opacity .2s}
+.kitchen-cta:hover{opacity:.7}
+
+/* video pane */
+.kitchen-video{position:relative;border-radius:14px;overflow:hidden;border:1px solid rgba(255,255,255,.12);background:#0A0A0A;aspect-ratio:4/5;min-height:540px}
+.kitchen-video video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.kv-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.10) 0%,rgba(0,0,0,.55) 65%,rgba(0,0,0,.88) 100%);pointer-events:none;z-index:1}
+.kv-meta{position:absolute;left:18px;top:18px;display:flex;gap:8px;align-items:center;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:#fff;font-weight:600;z-index:2}
+.kv-meta .rec{width:8px;height:8px;border-radius:50%;background:var(--red);animation:pulse 1.6s ease-out infinite;box-shadow:0 0 8px var(--red)}
+.kv-meta .live-pill{background:var(--red);color:#fff;padding:4px 9px;border-radius:99px;font-size:9.5px}
+.kv-meta .studio{color:rgba(255,255,255,.85)}
+.kv-tc{position:absolute;right:18px;top:18px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.18em;color:#fff;background:rgba(0,0,0,.5);padding:5px 10px;border-radius:99px;font-weight:600;backdrop-filter:blur(8px);z-index:2}
+.kv-caption{position:absolute;left:22px;right:22px;bottom:22px;color:#fff;z-index:2}
+.kv-caption .ep{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.22em;color:var(--yellow);font-weight:600;display:block;margin-bottom:6px}
+.kv-caption h3{font-family:'Geist',sans-serif;font-weight:700;font-size:clamp(20px,2vw,28px);color:#fff;letter-spacing:-.025em;line-height:1.1;margin:0}
+.kv-caption h3 .it{color:var(--yellow);font-style:italic;font-weight:500}
+.kv-caption .dir{display:block;margin-top:8px;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.7);font-weight:500}
+.kv-play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:78px;height:78px;border-radius:50%;background:rgba(255,255,255,.94);border:none;cursor:none;z-index:3;display:grid;place-items:center;transition:.25s var(--ease)}
+.kv-play::before{content:"";width:0;height:0;border-left:18px solid var(--ink);border-top:11px solid transparent;border-bottom:11px solid transparent;margin-left:5px}
+.kv-play:hover{background:var(--yellow);transform:translate(-50%,-50%) scale(1.06)}
+
+@media (max-width:1080px){
+  .kitchen-split{grid-template-columns:1fr;gap:30px}
+  .kitchen-video{aspect-ratio:16/10;min-height:0}
+  .kitchen-stats{gap:24px}
+}
+
 /* hero stays */
 .cinema-hero{height:100vh;min-height:740px;max-height:960px}
 
@@ -1856,24 +1943,40 @@ section,.intro,.shop,.recipes-wrap,.pillars-wrap,.stockists-wrap,.bundle-wrap,
 /* compare/pair section heads — remove paragraph if empty look */
 .compare-wrap .sec-head p,.pair-wrap .sec-head p{font-size:14.5px}
 
-/* ====== COMPARE — 2-col with side image + richer table ====== */
-.compare-split{display:grid;grid-template-columns:1fr 1.5fr;gap:36px;align-items:start}
-.compare-side h2{font-size:clamp(34px,4vw,52px);margin:8px 0 12px}
-.compare-side > p{font-family:'Geist',sans-serif;font-size:15px;color:var(--ink-soft);line-height:1.6;margin:0 0 18px;max-width:360px}
-.compare-img{position:relative;border-radius:12px;overflow:hidden;margin-bottom:16px}
-.compare-img img{width:100%;height:220px;object-fit:cover;display:block}
-.compare-img .img-tag{position:absolute;left:12px;bottom:12px;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;background:rgba(15,15,18,.78);color:var(--yellow);padding:6px 10px;border-radius:99px;font-weight:600;backdrop-filter:blur(8px)}
-.compare-callout{list-style:none;padding:18px;margin:0;background:var(--ink);color:var(--white);border-radius:12px;display:flex;flex-direction:column;gap:10px}
-.compare-callout li{font-family:'Geist',sans-serif;font-size:13.5px;color:rgba(255,255,255,.78);font-weight:500;display:flex;align-items:baseline;gap:8px}
-.compare-callout li::before{content:"●";color:var(--yellow);font-size:9px}
-.compare-callout li b{color:var(--yellow);font-weight:700;font-size:15px;font-family:'Geist',sans-serif;letter-spacing:-.02em;margin-right:4px}
-.compare-table-wrap{margin:0;max-width:none}
-.compare-table th,.compare-table td{padding:14px 16px;font-size:14px}
-.compare-table thead th{padding:18px 16px;font-size:14px}
-.compare-table td.sak-col{font-size:18px}
+/* ====== COMPARE — 3-column bold comparison grid ====== */
+.vs-grid{display:grid;grid-template-columns:1.15fr 1fr 1fr;gap:14px;align-items:stretch}
+.vs-col{background:var(--paper);border:1px solid var(--line);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;transition:transform .4s var(--ease)}
+.vs-col:hover{transform:translateY(-4px)}
+.vs-head{padding:24px 26px 20px;border-bottom:1px solid var(--line);background:var(--bone)}
+.vs-tag{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--grey-darker);font-weight:600;background:var(--white);padding:4px 9px;border-radius:99px;border:1px solid var(--line);margin-bottom:10px}
+.vs-head h3{font-family:'Geist',sans-serif;font-weight:700;font-size:26px;letter-spacing:-.035em;line-height:1;color:var(--ink)}
+.vs-head p{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--grey-darker);font-weight:500;margin:6px 0 0}
+.vs-list{list-style:none;padding:6px 26px;margin:0;flex:1}
+.vs-list li{display:flex;align-items:center;gap:12px;padding:11px 0;font-family:'Geist',sans-serif;font-size:14px;color:var(--ink-soft);border-bottom:1px solid var(--line-soft);font-weight:500}
+.vs-list li:last-child{border-bottom:0}
+.vs-list li .ic{width:22px;height:22px;border-radius:50%;display:grid;place-items:center;font-family:'Geist',sans-serif;font-weight:700;font-size:13px;flex-shrink:0}
+.vs-list li.yes .ic{background:var(--ink);color:var(--yellow)}
+.vs-list li.no .ic{background:transparent;border:1.5px solid var(--grey);color:var(--grey-darker);font-weight:400}
+.vs-list li.mid .ic{background:var(--bone);border:1.5px solid var(--grey-darker);color:var(--ink);font-weight:700;font-size:11px}
+.vs-list li.no,.vs-list li.mid{color:var(--grey-darker)}
+.vs-score{padding:18px 26px;background:var(--bone);border-top:1px solid var(--line);font-family:'Anton',sans-serif;font-size:36px;color:var(--ink);letter-spacing:.02em;text-align:right;line-height:1}
+.vs-score.muted{color:var(--grey-darker)}
+
+/* WINNER column — Sakaza highlighted */
+.vs-col.vs-win{background:var(--ink);color:var(--white);border-color:var(--ink);transform:translateY(-8px)}
+.vs-col.vs-win:hover{transform:translateY(-12px)}
+.vs-col.vs-win .vs-head{background:var(--red);border-bottom-color:var(--red-deep)}
+.vs-col.vs-win .vs-tag{background:var(--yellow);border-color:var(--yellow);color:var(--ink)}
+.vs-col.vs-win .vs-head h3{color:#fff;font-size:32px}
+.vs-col.vs-win .vs-head p{color:rgba(255,255,255,.78)}
+.vs-col.vs-win .vs-list li{color:var(--white);border-bottom-color:rgba(255,255,255,.10)}
+.vs-col.vs-win .vs-list li .ic{background:var(--yellow);color:var(--ink)}
+.vs-col.vs-win .vs-score{background:var(--yellow);color:var(--ink);border-top-color:var(--ink);font-size:42px}
+
 @media (max-width:1080px){
-  .compare-split{grid-template-columns:1fr;gap:24px}
-  .compare-img img{height:200px}
+  .vs-grid{grid-template-columns:1fr;gap:14px}
+  .vs-col.vs-win{transform:none}
+  .vs-col.vs-win:hover{transform:translateY(-4px)}
 }
 
 /* news section — pull elements together */
@@ -2461,59 +2564,52 @@ footer{padding-top:40px;padding-bottom:22px}
   </div>
 </section>
 
-<!-- ============== INSIDE THE KITCHEN — video ============== -->
+<!-- ============== INSIDE THE KITCHEN — side-by-side video + chapter list ============== -->
 <section class="process-wrap" id="inside">
-  <div class="container">
-    <div class="sec-head">
-      <span class="kicker">№ 06 / Inside the kitchen</span>
+  <div class="container kitchen-split">
+
+    <!-- Left: copy + chapters -->
+    <div class="kitchen-text">
+      <span class="kicker">№ 06 · Inside the Kitchen</span>
       <h2>Every batch starts on a <span class="it">worktop</span>.</h2>
-      <p>No factory floor. No flavour science lab. Just chefs, fire, single-origin spice and a relentless tasting protocol — until the dish answers back.</p>
+      <p class="lede">No factory floor. No flavour science lab. Just chefs, fire, single-origin spice and a relentless tasting protocol — until the dish answers back.</p>
+
+      <ul class="kitchen-stats">
+        <li><b>4 min</b><span>Watch time</span></li>
+        <li><b>140+</b><span>Recipe iterations</span></li>
+        <li><b>1</b><span>Mumbai kitchen</span></li>
+      </ul>
+
+      <ol class="kitchen-ch">
+        <li><span class="t">0:00</span><div><b>The first taste</b><p>Why we started cooking with spirits in mind — and how we kept the personality.</p></div></li>
+        <li><span class="t">0:54</span><div><b>The Mumbai kitchen</b><p>A tour of the worktop where every Sakaza recipe gets tasted &amp; rebuilt.</p></div></li>
+        <li><span class="t">2:14</span><div><b>The blend &amp; the burn</b><p>Inside the slow-cook of Spicy Tequila — citrus, chilli, smoke.</p></div></li>
+        <li><span class="t">3:21</span><div><b>Into the bottle</b><p>Cold-fill, hand-cap, hand-pack — and why we'll never use plastic.</p></div></li>
+      </ol>
+
+      <a href="#" class="kitchen-cta">Watch the full film <span>→</span></a>
     </div>
 
-    <div class="video-frame reveal-up">
+    <!-- Right: portrait video frame -->
+    <div class="kitchen-video reveal-up">
       <video autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&w=1600&q=80">
         <source src="https://videos.pexels.com/video-files/3296/3296-uhd_2560_1440_25fps.mp4" type="video/mp4">
         <source src="https://videos.pexels.com/video-files/4252888/4252888-uhd_2732_1440_25fps.mp4" type="video/mp4">
       </video>
-      <div class="overlay"></div>
-      <div class="meta">
-        <span class="rec"></span><span class="live-pill">LIVE</span><span>SAKAZA STUDIO · MUMBAI</span>
+      <div class="kv-overlay"></div>
+      <div class="kv-meta">
+        <span class="rec"></span><span class="live-pill">LIVE</span>
+        <span class="studio">SAKAZA STUDIO · MUMBAI</span>
       </div>
-      <div class="timecode">02:14 / 04:38</div>
-      <div class="caption">
-        <div>
-          <span class="num">№ 06 · Episode 01</span>
-          <h3>How we built <span class="it">Spicy Tequila</span>.</h3>
-        </div>
-        <div class="info">
-          <span>Director · Ria Mehrotra</span>
-          <span>4 min watch</span>
-        </div>
+      <div class="kv-tc">02:14 / 04:38</div>
+      <div class="kv-caption">
+        <span class="ep">№ 06 · Episode 01</span>
+        <h3>How we built <span class="it">Spicy Tequila</span>.</h3>
+        <span class="dir">Directed by Ria Mehrotra · 4 min</span>
       </div>
+      <button class="kv-play" aria-label="Play"></button>
     </div>
 
-    <div class="chapters reveal-stagger">
-      <div class="chapter">
-        <div class="ch"><span>Ch. 01</span><span>0:00</span></div>
-        <h5>The first taste</h5>
-        <p>Why we started cooking with spirits in mind — and how we removed the alcohol without losing the personality.</p>
-      </div>
-      <div class="chapter">
-        <div class="ch"><span>Ch. 02</span><span>0:54</span></div>
-        <h5>The Mumbai kitchen</h5>
-        <p>A tour of the chef's worktop where every Sakaza recipe is tasted, tweaked and torn up — sometimes three times a day.</p>
-      </div>
-      <div class="chapter">
-        <div class="ch"><span>Ch. 03</span><span>2:14</span></div>
-        <h5>The blend &amp; the burn</h5>
-        <p>Inside the slow-cook of Spicy Tequila — fresh citrus, single-origin chillies, and the smoke that says "drink me".</p>
-      </div>
-      <div class="chapter">
-        <div class="ch"><span>Ch. 04</span><span>3:21</span></div>
-        <h5>Into the bottle</h5>
-        <p>Cold-fill, hand-cap, hand-pack. The reason we ship in glass — and why we'll never go back to plastic pouches.</p>
-      </div>
-    </div>
   </div>
 </section>
 
@@ -2640,24 +2736,50 @@ footer{padding-top:40px;padding-bottom:22px}
   </div>
 </section>
 
-<!-- STOCKISTS -->
-<section id="stockists" class="stockists-wrap">
-  <div class="container stockists-grid">
-    <div>
-      <span class="kicker" style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--red);font-weight:500;display:block;margin-bottom:14px">№ 07 / Find us in the wild</span>
-      <h2>Stocked at the <span class="it">good</span> shelves.</h2>
-      <p>Or skip the trip — order online and we'll ship pan-India in 2–5 working days.</p>
-      <a href="#" class="link-line">Find a store near you →</a>
+<!-- STOCKISTS — compact, centered, denser tile grid -->
+<section id="stockists" class="stockists-wrap stockists-v2">
+  <div class="container">
+    <div class="stockists-head">
+      <div class="sh-l">
+        <span class="kicker">№ 07 · Stocked across India</span>
+        <h2>Find us at the <span class="it">good</span> shelves.</h2>
+      </div>
+      <p class="sh-p">Or skip the trip — we ship pan-India in 2–5 working days. <a href="#shop" class="link-line">Shop online →</a></p>
     </div>
-    <div class="stockists-list">
-      <div class="stockist"><span class="nm">Foodhall</span><span class="ct">All stores · Pan India</span></div>
-      <div class="stockist"><span class="nm">Nature's Basket</span><span class="ct">Mumbai · Pune · Delhi</span></div>
-      <div class="stockist"><span class="nm">Le Marche</span><span class="ct">Delhi NCR</span></div>
-      <div class="stockist"><span class="nm">Modern Bazaar</span><span class="ct">Delhi · Gurugram</span></div>
-      <div class="stockist"><span class="nm">Godrej Nature's</span><span class="ct">All stores</span></div>
-      <div class="stockist"><span class="nm">Blinkit</span><span class="ct">10-min delivery · 9 cities</span></div>
-      <div class="stockist"><span class="nm">Zepto</span><span class="ct">10-min delivery · 6 cities</span></div>
-      <div class="stockist"><span class="nm">Amazon</span><span class="ct">Prime delivery · India</span></div>
+
+    <div class="stockists-rail">
+      <a href="https://www.foodhallonline.com/" target="_blank" rel="noopener" class="st-tile">
+        <div class="st-mark"><img src="https://www.google.com/s2/favicons?domain=foodhallonline.com&sz=128" alt="Foodhall" data-fallback="F" loading="lazy"/></div>
+        <div><div class="st-nm">Foodhall</div><div class="st-ct">Pan-India</div></div>
+      </a>
+      <a href="https://www.naturesbasket.co.in/" target="_blank" rel="noopener" class="st-tile">
+        <div class="st-mark"><img src="https://www.google.com/s2/favicons?domain=naturesbasket.co.in&sz=128" alt="Nature's Basket" data-fallback="N" loading="lazy"/></div>
+        <div><div class="st-nm">Nature's Basket</div><div class="st-ct">Mumbai · Pune · Delhi</div></div>
+      </a>
+      <a href="https://www.lemarche.in/" target="_blank" rel="noopener" class="st-tile">
+        <div class="st-mark"><img src="https://www.google.com/s2/favicons?domain=lemarche.in&sz=128" alt="Le Marche" data-fallback="L" loading="lazy"/></div>
+        <div><div class="st-nm">Le Marche</div><div class="st-ct">Delhi NCR</div></div>
+      </a>
+      <a href="https://www.modernbazaar.com/" target="_blank" rel="noopener" class="st-tile">
+        <div class="st-mark"><img src="https://www.google.com/s2/favicons?domain=modernbazaar.com&sz=128" alt="Modern Bazaar" data-fallback="M" loading="lazy"/></div>
+        <div><div class="st-nm">Modern Bazaar</div><div class="st-ct">Delhi · Gurugram</div></div>
+      </a>
+      <a href="https://www.godrejnature.com/" target="_blank" rel="noopener" class="st-tile">
+        <div class="st-mark"><img src="https://www.google.com/s2/favicons?domain=godrejnature.com&sz=128" alt="Godrej Nature's" data-fallback="G" loading="lazy"/></div>
+        <div><div class="st-nm">Godrej Nature's</div><div class="st-ct">All stores</div></div>
+      </a>
+      <a href="https://blinkit.com/" target="_blank" rel="noopener" class="st-tile hot">
+        <div class="st-mark"><img src="https://www.google.com/s2/favicons?domain=blinkit.com&sz=128" alt="Blinkit" data-fallback="B" loading="lazy"/></div>
+        <div><div class="st-nm">Blinkit</div><div class="st-ct">10-min · 9 cities</div></div>
+      </a>
+      <a href="https://www.zeptonow.com/" target="_blank" rel="noopener" class="st-tile hot">
+        <div class="st-mark"><img src="https://www.google.com/s2/favicons?domain=zeptonow.com&sz=128" alt="Zepto" data-fallback="Z" loading="lazy"/></div>
+        <div><div class="st-nm">Zepto</div><div class="st-ct">10-min · 6 cities</div></div>
+      </a>
+      <a href="https://www.amazon.in/" target="_blank" rel="noopener" class="st-tile">
+        <div class="st-mark"><img src="https://www.google.com/s2/favicons?domain=amazon.in&sz=128" alt="Amazon" data-fallback="A" loading="lazy"/></div>
+        <div><div class="st-nm">Amazon</div><div class="st-ct">Prime · India</div></div>
+      </a>
     </div>
   </div>
 </section>
@@ -2742,54 +2864,6 @@ footer{padding-top:40px;padding-bottom:22px}
         </div>
       </article>
     </div>
-  </div>
-</section>
-
-<!-- COMPARE — 2-col, richer rows, side image -->
-<section class="compare-wrap">
-  <div class="container compare-split">
-
-    <div class="compare-side">
-      <span class="kicker" style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--red);font-weight:500;display:block;margin-bottom:12px">№ 09 / The honest table</span>
-      <h2><span class="bold">Sakaza</span> vs <span class="it">the rest</span>.</h2>
-      <p>How our sauces &amp; tins genuinely stack up against the aisle. No marketing-speak, no asterisks.</p>
-      <div class="compare-img">
-        <img src="0169b302-273c-44ae-89f0-b9667f776673.png" alt="Sakaza sauces on driftwood" loading="lazy"/>
-        <div class="img-tag">Spicy Tequila + Fireball Vodka · 150 ml</div>
-      </div>
-      <ul class="compare-callout">
-        <li><b>11 of 11</b> rows pass on Sakaza</li>
-        <li><b>3.6×</b> more spice categories than "premium" rivals</li>
-        <li><b>0g</b> plastic in primary packaging</li>
-      </ul>
-    </div>
-
-    <div class="compare-table-wrap reveal-up">
-      <table class="compare-table">
-        <thead>
-          <tr>
-            <th>What matters</th>
-            <th class="sak"><span class="it">Sakaza</span></th>
-            <th>Ordinary aisle</th>
-            <th>"Premium" brands</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td>Chef-developed recipes</td><td class="sak-col">✓</td><td class="cross">—</td><td class="mid">Sometimes</td></tr>
-          <tr><td>Alcohol-inspired · 0% spirit</td><td class="sak-col">✓</td><td class="cross">—</td><td class="cross">—</td></tr>
-          <tr><td>Single-origin spices</td><td class="sak-col">✓</td><td class="cross">—</td><td class="mid">Sometimes</td></tr>
-          <tr><td>Real fresh aromatics</td><td class="sak-col">✓</td><td class="cross">—</td><td class="sak-col">✓</td></tr>
-          <tr><td>Tin &amp; glass packaging</td><td class="sak-col">✓</td><td class="cross">—</td><td class="cross">—</td></tr>
-          <tr><td>38% recycled glass content</td><td class="sak-col">✓</td><td class="cross">—</td><td class="cross">—</td></tr>
-          <tr><td>Zero artificial colour</td><td class="sak-col">✓</td><td class="cross">—</td><td class="mid">Mostly</td></tr>
-          <tr><td>Zero preservatives added</td><td class="sak-col">✓</td><td class="cross">—</td><td class="mid">Mostly</td></tr>
-          <tr><td>100% vegetarian</td><td class="sak-col">✓</td><td class="mid">Mostly</td><td class="sak-col">✓</td></tr>
-          <tr><td>Gift-ready hampers</td><td class="sak-col">✓</td><td class="cross">—</td><td class="cross">—</td></tr>
-          <tr><td>Same-day Mumbai delivery</td><td class="sak-col">✓</td><td class="cross">—</td><td class="cross">—</td></tr>
-        </tbody>
-      </table>
-    </div>
-
   </div>
 </section>
 
@@ -3154,6 +3228,20 @@ document.querySelectorAll('.wish').forEach(w=>{
 });
 
 setTimeout(()=>{ document.getElementById('cookie').classList.add('in') }, 2400);
+
+/* favicon fallback — if logo fails, replace with brand initial */
+document.querySelectorAll('.st-mark img').forEach(img=>{
+  img.addEventListener('error', ()=>{
+    const fallback = img.dataset.fallback || '?';
+    const parent = img.parentNode;
+    parent.removeChild(img);
+    parent.style.fontFamily="'Geist',sans-serif";
+    parent.style.fontWeight=700;
+    parent.style.fontSize='17px';
+    parent.style.color='var(--ink)';
+    parent.textContent = fallback;
+  });
+});
 
 if (window.matchMedia('(prefers-reduced-motion: reduce)').matches){
   document.querySelectorAll('[class*="track"]').forEach(t=>t.style.animation='none');
