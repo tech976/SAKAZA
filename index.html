@@ -72,8 +72,8 @@ h4{font-size:clamp(17px,1.5vw,20px);font-weight:600;letter-spacing:-.02em}
 
 .reveal{opacity:0;transform:translateY(18px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
 .reveal.in{opacity:1;transform:translateY(0)}
-.reveal-up{opacity:0;clip-path:inset(100% 0 0 0);transform:translateY(18px);transition:opacity 1s var(--ease),clip-path 1s var(--ease),transform 1s var(--ease)}
-.reveal-up.in{opacity:1;clip-path:inset(0 0 0 0);transform:translateY(0)}
+.reveal-up{opacity:0;transform:translateY(18px);transition:opacity 1s var(--ease),transform 1s var(--ease)}
+.reveal-up.in{opacity:1;transform:translateY(0)}
 .reveal-stagger > *{opacity:0;transform:translateY(20px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
 .reveal-stagger.in > *{opacity:1;transform:translateY(0)}
 .reveal-stagger.in > *:nth-child(1){transition-delay:.04s}
@@ -1711,8 +1711,9 @@ section,.intro,.shop,.recipes-wrap,.pillars-wrap,.stockists-wrap,.bundle-wrap,
 .stockist{min-height:84px;padding:14px}
 
 /* ====== STOCKISTS v2 — compact tile rail ====== */
-.stockists-v2{padding-top:24px;padding-bottom:24px}
-.stockists-v2 + .bundle-wrap{padding-top:14px}
+.stockists-v2{padding-top:24px;padding-bottom:18px!important}
+.stockists-v2 + .bundle-wrap,.stockists-wrap + .bundle-wrap{padding-top:0!important;margin-top:0}
+.bundle-wrap{padding-top:0!important}
 .stockists-v2 .stockists-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid var(--line)}
 .stockists-v2 .sh-l .kicker{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--red);font-weight:500;display:block;margin-bottom:8px}
 .stockists-v2 .sh-l h2{font-size:clamp(30px,3.8vw,52px);font-weight:700;letter-spacing:-.04em;line-height:1;margin:0}
