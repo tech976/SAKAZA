@@ -50,12 +50,11 @@ html.lenis,html.lenis body{height:auto}
 body{
   font-family:'Geist','Inter',-apple-system,sans-serif;
   background:var(--white);color:var(--ink);
-  font-size:15.5px;line-height:1.55;font-weight:400;overflow-x:hidden;cursor:none;position:relative
+  font-size:15.5px;line-height:1.55;font-weight:400;overflow-x:hidden;position:relative
 }
-@media (hover:none){body{cursor:auto}}
 img,svg{max-width:100%;display:block}
 a{color:inherit;text-decoration:none}
-button{font-family:inherit;cursor:none;border:none;background:none;padding:0;color:inherit}
+button{font-family:inherit;border:none;background:none;padding:0;color:inherit}
 
 body::after{
   content:"";position:fixed;inset:0;pointer-events:none;z-index:200;opacity:.04;mix-blend-mode:multiply;
@@ -70,11 +69,6 @@ h2{font-size:clamp(38px,5.4vw,84px);font-weight:600;letter-spacing:-.05em}
 h3{font-size:clamp(22px,2.4vw,30px);font-weight:600;letter-spacing:-.03em}
 h4{font-size:clamp(17px,1.5vw,20px);font-weight:600;letter-spacing:-.02em}
 .container{max-width:var(--maxw);margin:0 auto;padding:0 var(--gutter)}
-
-.cursor{position:fixed;left:0;top:0;width:8px;height:8px;border-radius:50%;background:var(--red);pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .25s var(--ease),height .25s var(--ease),opacity .2s}
-.cursor.is-hover{width:48px;height:48px;background:var(--red);opacity:.92;mix-blend-mode:difference}
-.cursor-trail{position:fixed;left:0;top:0;width:36px;height:36px;border:1px solid var(--ink);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);opacity:.28}
-@media (hover:none){.cursor,.cursor-trail{display:none}}
 
 .reveal{opacity:0;transform:translateY(18px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
 .reveal.in{opacity:1;transform:translateY(0)}
@@ -100,7 +94,7 @@ h4{font-size:clamp(17px,1.5vw,20px);font-weight:600;letter-spacing:-.02em}
 
 .mag{display:inline-block;transition:transform .4s var(--ease)}
 
-.btn{display:inline-flex;align-items:center;gap:12px;font-family:'Geist',sans-serif;font-weight:600;font-size:13.5px;letter-spacing:-.005em;padding:15px 24px;border-radius:999px;background:var(--ink);color:var(--white);border:1px solid var(--ink);transition:.35s var(--ease);position:relative;overflow:hidden;cursor:none}
+.btn{display:inline-flex;align-items:center;gap:12px;font-family:'Geist',sans-serif;font-weight:600;font-size:13.5px;letter-spacing:-.005em;padding:15px 24px;border-radius:999px;background:var(--ink);color:var(--white);border:1px solid var(--ink);transition:.35s var(--ease);position:relative;overflow:hidden;}
 .btn .arrow{display:inline-block;width:14px;height:1px;background:currentColor;position:relative;transition:width .35s var(--ease)}
 .btn .arrow::after{content:"";position:absolute;right:0;top:50%;width:6px;height:6px;border-right:1.5px solid currentColor;border-top:1.5px solid currentColor;transform:translateY(-50%) rotate(45deg)}
 .btn:hover{background:var(--red);border-color:var(--red);padding-right:30px}
@@ -453,7 +447,7 @@ section{padding:var(--section-y) 0;position:relative}
 .showcase .bg-text{position:absolute;left:0;right:0;top:50%;transform:translateY(-50%);text-align:center;font-family:'Anton',sans-serif;font-size:clamp(120px,18vw,260px);color:var(--bone);line-height:.9;letter-spacing:.02em;text-transform:uppercase;pointer-events:none;white-space:nowrap;font-weight:400;z-index:0}
 .showcase .container{position:relative;z-index:2}
 .showcase-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:18px;align-items:end}
-.show-card{display:flex;flex-direction:column;align-items:center;text-align:center;cursor:none;transition:transform .5s var(--ease)}
+.show-card{display:flex;flex-direction:column;align-items:center;text-align:center;transition:transform .5s var(--ease)}
 .show-card:hover{transform:translateY(-8px)}
 .show-card .stand{position:relative;width:100%;height:300px;display:grid;place-items:center;margin-bottom:18px}
 .show-card .stand .glow{position:absolute;left:50%;top:60%;transform:translate(-50%,-50%);width:200px;height:200px;border-radius:50%;opacity:.18;filter:blur(40px);z-index:0}
@@ -496,11 +490,11 @@ section{padding:var(--section-y) 0;position:relative}
 .shop{padding:var(--section-y) 0;background:var(--white)}
 .filters-bar{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;flex-wrap:wrap;gap:16px;padding-bottom:18px;border-bottom:1px solid var(--line)}
 .filters{display:flex;gap:6px;flex-wrap:wrap}
-.chip{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;padding:9px 16px;border:1px solid var(--line);background:transparent;border-radius:99px;color:var(--ink-soft);transition:.25s var(--ease);cursor:none}
+.chip{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;padding:9px 16px;border:1px solid var(--line);background:transparent;border-radius:99px;color:var(--ink-soft);transition:.25s var(--ease);}
 .chip:hover{border-color:var(--ink);color:var(--ink)}
 .chip.active{background:var(--ink);color:var(--white);border-color:var(--ink)}
 .filters-bar .sort{display:flex;align-items:center;gap:12px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft);font-weight:500}
-.filters-bar .sort select{font-family:inherit;font-size:inherit;border:1px solid var(--line);background:var(--white);padding:8px 30px 8px 14px;border-radius:99px;color:var(--ink);cursor:none;outline:none;appearance:none;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6' fill='none'><path d='M1 1l4 4 4-4' stroke='%230F0F12' stroke-width='1.5'/></svg>");background-repeat:no-repeat;background-position:right 12px center;letter-spacing:.14em;text-transform:uppercase;font-weight:500}
+.filters-bar .sort select{font-family:inherit;font-size:inherit;border:1px solid var(--line);background:var(--white);padding:8px 30px 8px 14px;border-radius:99px;color:var(--ink);outline:none;appearance:none;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6' fill='none'><path d='M1 1l4 4 4-4' stroke='%230F0F12' stroke-width='1.5'/></svg>");background-repeat:no-repeat;background-position:right 12px center;letter-spacing:.14em;text-transform:uppercase;font-weight:500}
 
 .products{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
 .product{background:var(--paper);border-radius:12px;overflow:hidden;display:flex;flex-direction:column;border:1px solid var(--line);transition:.4s var(--ease);position:relative;will-change:transform}
@@ -714,7 +708,7 @@ section{padding:var(--section-y) 0;position:relative}
 .faq-grid .l .support .t a{color:var(--red);font-weight:600}
 details.q{border-top:1px solid var(--line);padding:22px 0}
 details.q:last-of-type{border-bottom:1px solid var(--line)}
-details.q summary{list-style:none;display:flex;justify-content:space-between;align-items:center;cursor:none;font-family:'Geist',sans-serif;font-size:19px;letter-spacing:-.025em;color:var(--ink);transition:color .25s var(--ease);font-weight:600}
+details.q summary{list-style:none;display:flex;justify-content:space-between;align-items:center;font-family:'Geist',sans-serif;font-size:19px;letter-spacing:-.025em;color:var(--ink);transition:color .25s var(--ease);font-weight:600}
 details.q summary:hover{color:var(--red)}
 details.q summary::-webkit-details-marker{display:none}
 details.q summary .plus{width:30px;height:30px;border:1px solid var(--ink);border-radius:50%;display:grid;place-items:center;font-family:'Geist',sans-serif;font-size:17px;font-weight:300;flex-shrink:0;margin-left:16px;background:transparent;color:var(--ink);transition:.3s var(--ease)}
@@ -783,8 +777,6 @@ footer .container{position:relative;z-index:2}
   .vstrip{display:none}
 }
 @media (max-width:1080px){
-  body{cursor:auto}
-  .cursor,.cursor-trail{display:none}
   .hero-grid,.bundle-card,.faq-grid,.intro-grid,.pillars-grid,.stockists-grid,.founder-card{grid-template-columns:1fr;gap:48px}
   .pillars-grid .side,.faq-grid .l,.intro .side{position:relative;top:auto}
   .filters-bar{flex-direction:column;align-items:flex-start}
@@ -874,7 +866,7 @@ footer .container{position:relative;z-index:2}
 .video-frame .caption .info{display:flex;gap:20px;font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.78);font-weight:500;align-items:center}
 
 .chapters{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:30px;max-width:1180px;margin-left:auto;margin-right:auto}
-.chapter{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:20px;transition:.3s var(--ease);cursor:none}
+.chapter{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:20px;transition:.3s var(--ease);}
 .chapter:hover{border-color:var(--yellow);background:rgba(255,255,255,.07);transform:translateY(-3px)}
 .chapter .ch{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--yellow);font-weight:600;display:flex;justify-content:space-between;align-items:center}
 .chapter h5{font-family:'Geist',sans-serif;font-size:16px;font-weight:600;letter-spacing:-.025em;margin:10px 0 6px;color:var(--white)}
@@ -1333,7 +1325,7 @@ footer{padding-top:60px;padding-bottom:24px}
 .strip-cell b{font-family:'Geist',sans-serif;font-weight:700;font-size:17px;letter-spacing:-.02em;color:var(--ink)}
 .strip-cell span{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:rgba(15,15,18,.65);margin-top:4px;font-weight:600}
 .vid-ctrl{flex:0 0 auto;gap:10px;border-left:1.5px solid rgba(15,15,18,.18);padding-left:22px}
-.vid-btn{width:40px;height:40px;border-radius:50%;border:2px solid var(--ink);background:transparent;color:var(--ink);display:grid;place-items:center;cursor:none;font-size:16px;font-weight:700;transition:.2s}
+.vid-btn{width:40px;height:40px;border-radius:50%;border:2px solid var(--ink);background:transparent;color:var(--ink);display:grid;place-items:center;font-size:16px;font-weight:700;transition:.2s}
 .vid-btn:hover{background:var(--ink);color:var(--yellow);border-color:var(--ink)}
 .vid-ctrl .tc{display:inline-flex;align-items:center;gap:8px;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.18em;color:var(--ink);font-weight:700;margin-left:6px}
 .vid-ctrl .tc .rec{width:10px;height:10px;border-radius:50%;background:var(--red);animation:pulse 1.6s ease-out infinite;box-shadow:0 0 10px var(--red)}
@@ -1862,7 +1854,7 @@ footer{padding-top:50px;padding-bottom:24px}
 .kv-caption h3{font-family:'Geist',sans-serif;font-weight:700;font-size:clamp(20px,2vw,28px);color:#fff;letter-spacing:-.025em;line-height:1.1;margin:0}
 .kv-caption h3 .it{color:var(--yellow);font-style:italic;font-weight:500}
 .kv-caption .dir{display:block;margin-top:8px;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.7);font-weight:500}
-.kv-play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:78px;height:78px;border-radius:50%;background:rgba(255,255,255,.94);border:none;cursor:none;z-index:3;display:grid;place-items:center;transition:.25s var(--ease)}
+.kv-play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:78px;height:78px;border-radius:50%;background:rgba(255,255,255,.94);border:none;z-index:3;display:grid;place-items:center;transition:.25s var(--ease)}
 .kv-play::before{content:"";width:0;height:0;border-left:18px solid var(--ink);border-top:11px solid transparent;border-bottom:11px solid transparent;margin-left:5px}
 .kv-play:hover{background:var(--yellow);transform:translate(-50%,-50%) scale(1.06)}
 
@@ -2011,9 +2003,6 @@ footer{padding-top:40px;padding-bottom:22px}
 </style>
 </head>
 <body>
-
-<div class="cursor" id="cursor"></div>
-<div class="cursor-trail" id="cursorTrail"></div>
 
 <!-- VERTICAL side ticker -->
 <aside class="vstrip" aria-hidden="true">
@@ -2198,7 +2187,7 @@ footer{padding-top:40px;padding-bottom:22px}
 
       <a href="#shop" class="show-card" data-c="red">
         <div class="stand"><div class="glow"></div><div class="shadow"></div>
-          <div class="real-prod-wrap"><img src="9e806cc6-95ad-4dc1-8dce-0bd92bbad828.png" alt="Thai Fire Blaze tin" loading="lazy"/></div>
+          <div class="real-prod-wrap"><img src="9e806cc6-95ad-4dc1-8dce-0bd92bbad828.webp" alt="Thai Fire Blaze tin" loading="lazy"/></div>
         </div>
         <div class="num">01</div>
         <div class="nm">Thai <span class="it">Fire</span> Blaze</div>
@@ -2209,7 +2198,7 @@ footer{padding-top:40px;padding-bottom:22px}
 
       <a href="#shop" class="show-card" data-c="purple">
         <div class="stand"><div class="glow"></div><div class="shadow"></div>
-          <div class="real-prod-wrap"><img src="16c19094-91f7-4fc3-b4b4-f886bfa43667.png" alt="Singapore Street tin" loading="lazy"/></div>
+          <div class="real-prod-wrap"><img src="16c19094-91f7-4fc3-b4b4-f886bfa43667.webp" alt="Singapore Street tin" loading="lazy"/></div>
         </div>
         <div class="num">02</div>
         <div class="nm">Singapore <span class="it">Street</span></div>
@@ -2220,7 +2209,7 @@ footer{padding-top:40px;padding-bottom:22px}
 
       <a href="#shop" class="show-card" data-c="yellow">
         <div class="stand"><div class="glow"></div><div class="shadow"></div>
-          <div class="real-prod-wrap"><img src="142700c3-2d39-4490-b6a9-349e4439d28d.png" alt="Malaysian Curry tin" loading="lazy"/></div>
+          <div class="real-prod-wrap"><img src="142700c3-2d39-4490-b6a9-349e4439d28d.webp" alt="Malaysian Curry tin" loading="lazy"/></div>
         </div>
         <div class="num">03</div>
         <div class="nm">Malaysian <span class="it">Curry</span></div>
@@ -2231,7 +2220,7 @@ footer{padding-top:40px;padding-bottom:22px}
 
       <a href="#shop" class="show-card" data-c="red">
         <div class="stand"><div class="glow"></div><div class="shadow"></div>
-          <div class="real-prod-wrap"><img src="e50678e0-a1f3-40d7-9069-2399cc84cef1.png" alt="Spicy Tequila sauce" loading="lazy" style="object-position:75% center"/></div>
+          <div class="real-prod-wrap"><img src="e50678e0-a1f3-40d7-9069-2399cc84cef1.webp" alt="Spicy Tequila sauce" loading="lazy" style="object-position:75% center"/></div>
         </div>
         <div class="num">04</div>
         <div class="nm">Spicy <span class="it">Tequila</span></div>
@@ -2242,7 +2231,7 @@ footer{padding-top:40px;padding-bottom:22px}
 
       <a href="#shop" class="show-card" data-c="orange">
         <div class="stand"><div class="glow"></div><div class="shadow"></div>
-          <div class="real-prod-wrap"><img src="e50678e0-a1f3-40d7-9069-2399cc84cef1.png" alt="Fireball Vodka sauce" loading="lazy" style="object-position:25% center"/></div>
+          <div class="real-prod-wrap"><img src="e50678e0-a1f3-40d7-9069-2399cc84cef1.webp" alt="Fireball Vodka sauce" loading="lazy" style="object-position:25% center"/></div>
         </div>
         <div class="num">05</div>
         <div class="nm">Fireball <span class="it">Vodka</span></div>
@@ -2263,7 +2252,7 @@ footer{padding-top:40px;padding-bottom:22px}
       <span class="r">Sauces · 0% Alcohol · 100% Sauce</span>
     </div>
   </div>
-  <img src="9ae64d33-ed9d-4ea0-a9b4-04b64c14055b.png" alt="Bold flavours, zero compromise — Sakaza sauces" loading="lazy"/>
+  <img src="9ae64d33-ed9d-4ea0-a9b4-04b64c14055b.webp" alt="Bold flavours, zero compromise — Sakaza sauces" loading="lazy"/>
   <div class="cta-overlay">
     <div class="container">
       <span class="lbl">Fireball Vodka &amp; Spicy Tequila · 150 ml glass</span>
@@ -2397,7 +2386,7 @@ footer{padding-top:40px;padding-bottom:22px}
           <button class="wish">♡</button>
           <span class="badge-top">Best seller</span>
           <span class="badge-sale">−8%</span>
-          <img class="real-prod" src="9e806cc6-95ad-4dc1-8dce-0bd92bbad828.png" alt="Thai Fire Blaze noodle tin" loading="lazy"/>
+          <img class="real-prod" src="9e806cc6-95ad-4dc1-8dce-0bd92bbad828.webp" alt="Thai Fire Blaze noodle tin" loading="lazy"/>
         </div>
         <div class="info">
           <div class="cat">Noodles · 100g</div>
@@ -2419,7 +2408,7 @@ footer{padding-top:40px;padding-bottom:22px}
         <div class="stage stage-purple">
           <button class="wish">♡</button>
           <span class="badge-top red">New drop</span>
-          <img class="real-prod" src="16c19094-91f7-4fc3-b4b4-f886bfa43667.png" alt="Singapore Street noodle tin" loading="lazy"/>
+          <img class="real-prod" src="16c19094-91f7-4fc3-b4b4-f886bfa43667.webp" alt="Singapore Street noodle tin" loading="lazy"/>
         </div>
         <div class="info">
           <div class="cat">Noodles · 100g</div>
@@ -2442,7 +2431,7 @@ footer{padding-top:40px;padding-bottom:22px}
           <button class="wish">♡</button>
           <span class="badge-top">Fan fav</span>
           <span class="badge-sale">−8%</span>
-          <img class="real-prod" src="142700c3-2d39-4490-b6a9-349e4439d28d.png" alt="Malaysian Curry noodle tin" loading="lazy"/>
+          <img class="real-prod" src="142700c3-2d39-4490-b6a9-349e4439d28d.webp" alt="Malaysian Curry noodle tin" loading="lazy"/>
         </div>
         <div class="info">
           <div class="cat">Noodles · 100g</div>
@@ -2464,7 +2453,7 @@ footer{padding-top:40px;padding-bottom:22px}
         <div class="stage stage-bone">
           <button class="wish">♡</button>
           <span class="badge-top">Signature</span>
-          <img class="real-prod" src="e50678e0-a1f3-40d7-9069-2399cc84cef1.png" alt="Spicy Tequila sauce bottle" loading="lazy" style="object-position:75% center"/>
+          <img class="real-prod" src="e50678e0-a1f3-40d7-9069-2399cc84cef1.webp" alt="Spicy Tequila sauce bottle" loading="lazy" style="object-position:75% center"/>
         </div>
         <div class="info">
           <div class="cat">Sauce · 150ml</div>
@@ -2486,7 +2475,7 @@ footer{padding-top:40px;padding-bottom:22px}
         <div class="stage stage-orange">
           <button class="wish">♡</button>
           <span class="badge-top">Hot pick</span>
-          <img class="real-prod" src="e50678e0-a1f3-40d7-9069-2399cc84cef1.png" alt="Fireball Vodka sauce bottle" loading="lazy" style="object-position:25% center"/>
+          <img class="real-prod" src="e50678e0-a1f3-40d7-9069-2399cc84cef1.webp" alt="Fireball Vodka sauce bottle" loading="lazy" style="object-position:25% center"/>
         </div>
         <div class="info">
           <div class="cat">Sauce · 150ml</div>
@@ -2555,7 +2544,7 @@ footer{padding-top:40px;padding-bottom:22px}
       <span class="r">Editorial · March 2026</span>
     </div>
   </div>
-  <img src="c15418b1-912f-499a-bd38-9037fe258fd5.png" alt="Real flavour. Nothing else. — Sakaza signature sauces" loading="lazy"/>
+  <img src="c15418b1-912f-499a-bd38-9037fe258fd5.webp" alt="Real flavour. Nothing else. — Sakaza signature sauces" loading="lazy"/>
   <div class="cta-overlay">
     <div class="container">
       <span class="lbl">100% Sauce · 0% Alcohol · All-natural ingredients</span>
@@ -2800,7 +2789,7 @@ footer{padding-top:40px;padding-bottom:22px}
         <span class="mag"><a href="#" class="btn btn-yellow" data-mag>Start building <span class="arrow"></span></a></span>
       </div>
       <div class="r">
-        <img src="0169b302-273c-44ae-89f0-b9667f776673.png" alt="Sakaza sauce duo with chillies" style="width:100%;max-width:480px;border-radius:14px;display:block;box-shadow:0 26px 48px rgba(0,0,0,.25)" loading="lazy"/>
+        <img src="0169b302-273c-44ae-89f0-b9667f776673.webp" alt="Sakaza sauce duo with chillies" style="width:100%;max-width:480px;border-radius:14px;display:block;box-shadow:0 26px 48px rgba(0,0,0,.25)" loading="lazy"/>
       </div>
     </div>
   </div>
@@ -2925,12 +2914,12 @@ footer{padding-top:40px;padding-bottom:22px}
       <a href="#" class="ig-link">Follow on Instagram →</a>
     </div>
     <div class="ig-grid reveal-stagger">
-      <a class="ig-tile" href="#"><img src="e50678e0-a1f3-40d7-9069-2399cc84cef1.png" loading="lazy" alt="Sakaza sauce duo"/></a>
-      <a class="ig-tile" href="#"><img src="9e806cc6-95ad-4dc1-8dce-0bd92bbad828.png" loading="lazy" alt="Thai Fire Blaze tin"/></a>
-      <a class="ig-tile" href="#"><img src="e248b771-c8c5-4f28-b045-3f12f11a3b13.png" loading="lazy" alt="Spicy Tequila flatlay"/></a>
-      <a class="ig-tile" href="#"><img src="142700c3-2d39-4490-b6a9-349e4439d28d.png" loading="lazy" alt="Malaysian Curry tin"/></a>
-      <a class="ig-tile" href="#"><img src="bc78756e-78de-4798-b418-803dc5ff122e.png" loading="lazy" alt="Fireball Vodka flatlay"/></a>
-      <a class="ig-tile" href="#"><img src="16c19094-91f7-4fc3-b4b4-f886bfa43667.png" loading="lazy" alt="Singapore Street tin"/></a>
+      <a class="ig-tile" href="#"><img src="e50678e0-a1f3-40d7-9069-2399cc84cef1.webp" loading="lazy" alt="Sakaza sauce duo"/></a>
+      <a class="ig-tile" href="#"><img src="9e806cc6-95ad-4dc1-8dce-0bd92bbad828.webp" loading="lazy" alt="Thai Fire Blaze tin"/></a>
+      <a class="ig-tile" href="#"><img src="e248b771-c8c5-4f28-b045-3f12f11a3b13.webp" loading="lazy" alt="Spicy Tequila flatlay"/></a>
+      <a class="ig-tile" href="#"><img src="142700c3-2d39-4490-b6a9-349e4439d28d.webp" loading="lazy" alt="Malaysian Curry tin"/></a>
+      <a class="ig-tile" href="#"><img src="bc78756e-78de-4798-b418-803dc5ff122e.webp" loading="lazy" alt="Fireball Vodka flatlay"/></a>
+      <a class="ig-tile" href="#"><img src="16c19094-91f7-4fc3-b4b4-f886bfa43667.webp" loading="lazy" alt="Singapore Street tin"/></a>
     </div>
   </div>
 </section>
@@ -3104,25 +3093,6 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
     const t = document.querySelector(a.getAttribute('href'));
     if (t){ e.preventDefault(); lenis.scrollTo(t, { offset: -80, duration: 1.4 }); }
   });
-});
-
-const cursor = document.getElementById('cursor');
-const trail  = document.getElementById('cursorTrail');
-let mx=window.innerWidth/2, my=window.innerHeight/2;
-let cx=mx, cy=my, tx=mx, ty=my;
-const lerp=(a,b,n)=>a+(b-a)*n;
-window.addEventListener('mousemove', e=>{ mx=e.clientX; my=e.clientY });
-function loop(){
-  cx = lerp(cx, mx, 0.55); cy = lerp(cy, my, 0.55);
-  tx = lerp(tx, mx, 0.14); ty = lerp(ty, my, 0.14);
-  cursor.style.transform = `translate(${cx}px,${cy}px) translate(-50%,-50%)`;
-  trail.style.transform  = `translate(${tx}px,${ty}px) translate(-50%,-50%)`;
-  requestAnimationFrame(loop);
-}
-loop();
-document.querySelectorAll('a,button,.product,details.q summary,.chip,input,.pillar,.recipe,.ig-tile,.stockist,.show-card').forEach(el=>{
-  el.addEventListener('mouseenter', ()=>cursor.classList.add('is-hover'));
-  el.addEventListener('mouseleave', ()=>cursor.classList.remove('is-hover'));
 });
 
 const nav = document.getElementById('nav');
